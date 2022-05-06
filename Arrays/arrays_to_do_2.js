@@ -4,7 +4,13 @@
 // Working 'in-place' means that you cannot use a second array – move values within the array that you are given. 
 // As always, do not use built-in array functions such as splice().copy
 
-
+function Reverse(arr) {
+    for (var i = 0; i < arr.length / 2; i++) {
+        var temp = arr[i];
+        arr[i] = arr[arr.length - 1 - i];
+        arr[arr.length - 1 - i] = temp;
+    }
+}
 
 
 // Rotate
@@ -17,8 +23,31 @@
 // Third: minimize memory usage. With no new array, handle arrays/shiftBys in the millions.
 // Fourth: minimize the touches of each element.copy
 
-
-
+function Rotate(arr, moveBy) {
+var actualMovementsNeeded;
+    if (moveBy > 0) {
+        actualMovementsNeeded = moveBy % arr.length;
+    } else {
+        actualMovementsNeeded = Math.abs(moveBy) % arr.length;
+    }
+    if (moveBy > 0) {
+        for (var i = 0; i < actualMovementsNeeded; i++) {
+            var temp = arr[arr.length - 1];
+            for (var k = arr.length - 2; k >= 0; k--) {
+                arr[k+1] = arr[k];
+            }
+            arr[0] = temp;
+        }
+    } else {
+        for (var i = 0; i < actualMovementsNeeded; i++) {
+            var temp = arr[0];
+            for (var k = 1; k < arr.length; k++) {
+                arr[k-1] = arr[k];
+            }
+            arr[arr.length - 1] = temp; 
+        }
+    }
+}
 
 // Filter Range
 // Alan is good at breaking secret codes. 
@@ -27,7 +56,17 @@
 // Work in-place: return the array you are given, with values in original order. 
 // No built-in array functions.copy
 
-
+function filterRange(arr, minVal, maxVal) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] < minVal || arr[i] > maxVal) {
+            for (var k = i+1; k < arr.length; k++) {
+                arr[k-1] = arr[k];
+            }
+            arr.length--;
+            i--;
+        }
+    }
+}
 
 
 // Concat
@@ -35,3 +74,17 @@
 // Create a standalone function that accepts two arrays. 
 // Return a new array containing the first array's elements, followed by the second array's elements. 
 // Do not alter the original arrays. Ex.: arrConcat( ['a','b'], [1,2] ) should return new array ['a','b',1,2].
+
+function concatArrays(arr1, arr2) {
+    var newArr = [];
+    var curInd = 0; 
+    for (var i = 0; i < arr1.length; i++) {
+        newArr[curInd] = arr1[i];
+        curInd++;
+    }
+    for (var i = 0; i < arr2.length; i++) {
+        newArr[curInd] = arr2[i];
+        curInd++;
+    }
+    return newArr;
+}
