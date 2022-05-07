@@ -33,16 +33,16 @@ var actualMovementsNeeded;
     if (moveBy > 0) {
         for (var i = 0; i < actualMovementsNeeded; i++) {
             var temp = arr[arr.length - 1];
-            for (var k = arr.length - 2; k >= 0; k--) {
-                arr[k+1] = arr[k];
+            for (var x = arr.length - 2; x >= 0; x--) {
+                arr[x+1] = arr[x];
             }
             arr[0] = temp;
         }
     } else {
         for (var i = 0; i < actualMovementsNeeded; i++) {
             var temp = arr[0];
-            for (var k = 1; k < arr.length; k++) {
-                arr[k-1] = arr[k];
+            for (var x = 1; x < arr.length; x++) {
+                arr[x-1] = arr[x];
             }
             arr[arr.length - 1] = temp; 
         }
@@ -59,8 +59,8 @@ var actualMovementsNeeded;
 function filterRange(arr, minVal, maxVal) {
     for (var i = 0; i < arr.length; i++) {
         if (arr[i] < minVal || arr[i] > maxVal) {
-            for (var k = i+1; k < arr.length; k++) {
-                arr[k-1] = arr[k];
+            for (var x = i+1; x < arr.length; x++) {
+                arr[x-1] = arr[x];
             }
             arr.length--;
             i--;
@@ -75,16 +75,16 @@ function filterRange(arr, minVal, maxVal) {
 // Return a new array containing the first array's elements, followed by the second array's elements. 
 // Do not alter the original arrays. Ex.: arrConcat( ['a','b'], [1,2] ) should return new array ['a','b',1,2].
 
-function concatArrays(arr1, arr2) {
-    var newArr = [];
-    var curInd = 0; 
-    for (var i = 0; i < arr1.length; i++) {
-        newArr[curInd] = arr1[i];
-        curInd++;
+function concat(arr1, arr2) {
+    var arr3 = [];
+    var ind = 0;
+    for (var i = 0; i < arr.length; i++) {
+        arr3[ind] = arr1[i];
+        ind++;
     }
-    for (var i = 0; i < arr2.length; i++) {
-        newArr[curInd] = arr2[i];
-        curInd++;
+    for (var x = 0; x < arr.length; x++) {
+        arr3[ind] = arr2[i];
+        ind++;
     }
-    return newArr;
+    return arr3;
 }
