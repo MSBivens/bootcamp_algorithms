@@ -56,11 +56,11 @@ var actualMovementsNeeded;
 // Work in-place: return the array you are given, with values in original order. 
 // No built-in array functions.copy
 
-function filterRange(arr, minVal, maxVal) {
-    for (var i = 0; i < arr.length; i++) {
-        if (arr[i] < minVal || arr[i] > maxVal) {
-            for (var x = i+1; x < arr.length; x++) {
-                arr[x-1] = arr[x];
+function filterRange(arr, min, max) {
+    for (var i = arr.length-1; i >= 0; i--) {
+        if (arr[i] <= min || arr[i] >= max) {
+            for (var x = i; x < arr.length; x++) {
+                arr[x+1] = arr[x];
             }
             arr.length--;
             i--;
