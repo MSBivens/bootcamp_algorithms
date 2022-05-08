@@ -78,11 +78,11 @@ function filterRange(arr, min, max) {
 function concat(arr1, arr2) {
     var arr3 = [];
     var ind = 0;
-    for (var i = 0; i < arr.length; i++) {
+    for (var i = 0; i <= arr.length; i++) {
         arr3[ind] = arr1[i];
         ind++;
     }
-    for (var x = 0; x < arr.length; x++) {
+    for (var x = 0; x <= arr.length; x++) {
         arr3[ind] = arr2[i];
         ind++;
     }
