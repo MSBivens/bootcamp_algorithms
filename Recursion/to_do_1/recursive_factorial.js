@@ -3,3 +3,11 @@
 // If not an integer, truncate. 
 // Experts tell us 0! is 1. rFact(3) = 6 (1*2*3). Also, rFact(6.5) = 720 (1*2*3*4*5*6).
 
+function rFact(num) {
+    if(num > 1) {
+        return rFact(num-1) * num;
+    }
+    return 1
+}
+
+console.log(rFact(25))
